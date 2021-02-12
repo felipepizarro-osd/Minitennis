@@ -16,7 +16,25 @@ import javax.swing.JPanel;
  */
 public class KeyboardExample extends JPanel {
     public KeyboardExample(){
-        KeyListener listener = new MyKeyListener() ;
+        KeyListener listener = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+                System.out.println("KeyPressed= "+ KeyEvent.getKeyText(e.getKeyCode()));
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                System.out.println("KeyPressed= "+ KeyEvent.getKeyText(e.getKeyCode()));
+                
+            }
+        };
         addKeyListener(listener);
         setFocusable(true);
     }
@@ -29,25 +47,5 @@ public class KeyboardExample extends JPanel {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-    }
-    public class MyKeyListener implements KeyListener{
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        
-        System.out.println("KeyPressed= "+ KeyEvent.getKeyText(e.getKeyCode()));    
-    
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-       System.out.println("KeyPressed= "+ KeyEvent.getKeyText(e.getKeyCode())); 
-        
-    }
     }
 }

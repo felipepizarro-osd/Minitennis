@@ -26,6 +26,8 @@ class Ball {
     }
 
     public void move(){
+        boolean cambiarDireccion = true;
+        
         if(x+xa < 0){xa = 1;}
         if (x+xa > game.getWidth() -DIAMETRO){xa = -1; }
         if (y+ya < 0){ya = 1;}
@@ -35,6 +37,12 @@ class Ball {
         if (collision()){
             ya = -1;
             y = game.R.getTop()-DIAMETRO;
+            game.velocidad++;
+        }else{
+            cambiarDireccion = false;
+            
+        }if (cambiarDireccion ){
+            Sound.BALL.play();
         }
         x = x +xa;
         y = y+ya;

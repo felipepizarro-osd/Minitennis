@@ -41,10 +41,10 @@ public class Raqueta {
     }
     public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == KeyEvent.VK_LEFT){
-            xa = -1;
+            xa = -game.velocidad;
         }
         if(e.getKeyCode()== KeyEvent.VK_RIGHT){
-            xa = 1;
+            xa = game.velocidad;
             
         }
     }public Rectangle getBounds(){
